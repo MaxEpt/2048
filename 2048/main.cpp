@@ -1,35 +1,50 @@
 #include <iostream>
 #include "windows.h"
+#include "GameBoard.h"
+#include <ctime>
 
 int main()
 {	
+	
+
+	GameBoard gb;
+	gb.printBoard();
+	
+	int lastIndex = 0;
+	int j = 0;
+	std::srand(std::time(0));
 	while (true)
 	{
 		if (0x8000 && GetAsyncKeyState(VK_UP))
-		{
-			std::cout << "UP" << std::endl;
+		{			
+			gb.shiftBoardUp();			
+			gb.placeRandomValue();
+			gb.printBoard();
 		}
 		else if (0x8000 && GetAsyncKeyState(VK_RIGHT))
 		{
-			std::cout << "RIGHT" << std::endl;
+			gb.shiftBoardRight();			
+			gb.placeRandomValue();
+			gb.printBoard();
 		}
 		else if (0x8000 && GetAsyncKeyState(VK_LEFT))
 		{
-			std::cout << "LEFT" << std::endl;
+			gb.shiftBoardLeft();			
+			gb.placeRandomValue();
+			gb.printBoard();
 		}
 		else if (0x8000 && GetAsyncKeyState(VK_DOWN))
 		{
-			std::cout << "DOWN" << std::endl;
+			gb.shiftBoardDown();			
+			gb.placeRandomValue();
+			gb.printBoard();
 		}
 		else if (0x8000 && GetAsyncKeyState(0x51))//q-quit
 		{
 			break;
-		}
-		else
-		{			
-		}
-		
-		Sleep(100);
+		}		
+
+		Sleep(200);
 	}
 	return 0;
 }
