@@ -320,6 +320,20 @@ void GameBoard::placeRandomValue()
 	}
 }
 
+bool GameBoard::placeValue(unsigned int x, unsigned int y, unsigned int value)
+{
+	if (x > 3 || y > 3 || value==0)
+		return false;
+	
+	m_aBoard[y][x] = value;
+	return true;
+}
+
+unsigned int* GameBoard::getGameBoard()
+{
+	return (unsigned int*)m_aBoard;
+}
+
 bool GameBoard::isBoardShifted()
 {
 	return m_isBoardShifted;

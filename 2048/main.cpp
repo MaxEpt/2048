@@ -4,14 +4,10 @@
 #include <ctime>
 
 int main()
-{	
-	
-
+{
 	GameBoard gb;
-	gb.printBoard();
+	gb.printBoard();	
 	
-	int lastIndex = 0;
-	int j = 0;
 	std::srand(std::time(0));
 	while (true)
 	{
