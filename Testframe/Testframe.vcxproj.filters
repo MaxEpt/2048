@@ -26,5 +26,17 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="shiftBoardUP_Ags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shiftBoardDown_Args.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shiftBoardLeft_Args.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shiftBoardRight_Args.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

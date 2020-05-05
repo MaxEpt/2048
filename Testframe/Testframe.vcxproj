@@ -167,6 +167,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="shiftBoardDown_Args.h" />
+    <ClInclude Include="shiftBoardLeft_Args.h" />
+    <ClInclude Include="shiftBoardRight_Args.h" />
+    <ClInclude Include="shiftBoardUP_Ags.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
