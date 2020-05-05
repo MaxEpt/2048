@@ -111,44 +111,31 @@ void GameBoard::printBoard()
 
 void GameBoard::shiftBoardLeft()
 {
-	int lastIndex = 0;
-	int j = 0;
+	unsigned int k = 0;
 	for (int i = 0; i < 4; i++)
 	{
-		if (m_aBoard[i][0] == 0)
-			lastIndex = 0;
-		else
-			lastIndex = 1;
-
-		j = 1;
-		while (j < 4)
+		k = 0;
+		for (int j = 1; j < 4; j++)
 		{
-			if (m_aBoard[i][j] == 0)
+			if (m_aBoard[i][j] != 0)
 			{
-				j++;
-				continue;
-			}
-			else
-			{
-				if (m_aBoard[i][j] == m_aBoard[i][lastIndex - 1])
+				while (k < j)
 				{
-					m_aBoard[i][lastIndex - 1] += m_aBoard[i][j];
-					m_aBoard[i][j] = 0;
-					lastIndex = j;
+					if (m_aBoard[i][k] == m_aBoard[i][j])
+					{
+						m_aBoard[i][k] += m_aBoard[i][j];
+						m_aBoard[i][j] = 0;
+						k++;
+						break;
+					}
+					else if (m_aBoard[i][k] == 0)
+					{
+						m_aBoard[i][k] = m_aBoard[i][j];
+						m_aBoard[i][j] = 0;
+						break;
+					}
+					k++;
 				}
-				else if (m_aBoard[i][lastIndex] == 0)
-				{
-					m_aBoard[i][lastIndex] = m_aBoard[i][j];
-					m_aBoard[i][j] = 0;
-					lastIndex = j;
-				}
-				else
-				{
-					j++;
-					lastIndex = j;
-					continue;
-				}
-				j++;
 			}
 		}
 	}
@@ -156,44 +143,31 @@ void GameBoard::shiftBoardLeft()
 
 void GameBoard::shiftBoardRight()
 {
-	int lastIndex = 0;
-	int j = 0;
+	unsigned int k = 3;
 	for (int i = 0; i < 4; i++)
 	{
-		if (m_aBoard[i][3] == 0)
-			lastIndex = 3;
-		else
-			lastIndex = 2;
-
-		j = 2;
-		while (j >= 0)
+		k = 3;
+		for (int j = 2; j >= 0; j--)
 		{
-			if (m_aBoard[i][j] == 0)
+			if (m_aBoard[i][j] != 0)
 			{
-				j--;
-				continue;
-			}
-			else
-			{
-				if (m_aBoard[i][j] == m_aBoard[i][lastIndex + 1])
+				while (k > j)
 				{
-					m_aBoard[i][lastIndex + 1] += m_aBoard[i][j];
-					m_aBoard[i][j] = 0;
-					lastIndex = j;
+					if (m_aBoard[i][k] == m_aBoard[i][j])
+					{
+						m_aBoard[i][k] += m_aBoard[i][j];
+						m_aBoard[i][j] = 0;
+						k--;
+						break;
+					}
+					else if (m_aBoard[i][k] == 0)
+					{
+						m_aBoard[i][k] = m_aBoard[i][j];
+						m_aBoard[i][j] = 0;
+						break;
+					}
+					k--;
 				}
-				else if (m_aBoard[i][lastIndex] == 0)
-				{
-					m_aBoard[i][lastIndex] = m_aBoard[i][j];
-					m_aBoard[i][j] = 0;
-					lastIndex = j;
-				}
-				else
-				{
-					j--;
-					lastIndex = j;
-					continue;
-				}
-				j--;
 			}
 		}
 	}
@@ -201,44 +175,31 @@ void GameBoard::shiftBoardRight()
 
 void GameBoard::shiftBoardUp()
 {
-	int lastIndex = 0;
-	int j = 0;
+	unsigned int k = 0;
 	for (int i = 0; i < 4; i++)
 	{
-		if (m_aBoard[0][i] == 0)
-			lastIndex = 0;
-		else
-			lastIndex = 1;
-
-		j = 1;
-		while (j < 4)
+		k = 0;
+		for (int j = 1; j < 4; j++)
 		{
-			if (m_aBoard[j][i] == 0)
+			if (m_aBoard[j][i] != 0)
 			{
-				j++;
-				continue;
-			}
-			else
-			{
-				if (m_aBoard[j][i] == m_aBoard[lastIndex - 1][i])
+				while (k < j)
 				{
-					m_aBoard[lastIndex - 1][i] += m_aBoard[j][i];
-					m_aBoard[j][i] = 0;
-					lastIndex = j;
+					if (m_aBoard[k][i] == m_aBoard[j][i])
+					{
+						m_aBoard[k][i] += m_aBoard[j][i];
+						m_aBoard[j][i] = 0;
+						k++;
+						break;
+					}
+					else if (m_aBoard[k][i] == 0)
+					{
+						m_aBoard[k][i] = m_aBoard[j][i];
+						m_aBoard[j][i] = 0;
+						break;
+					}
+					k++;
 				}
-				else if (m_aBoard[lastIndex][i] == 0)
-				{
-					m_aBoard[lastIndex][i] = m_aBoard[j][i];
-					m_aBoard[j][i] = 0;
-					lastIndex = j;
-				}
-				else
-				{
-					j++;
-					lastIndex = j;
-					continue;
-				}
-				j++;
 			}
 		}
 	}
@@ -246,44 +207,31 @@ void GameBoard::shiftBoardUp()
 
 void GameBoard::shiftBoardDown()
 {
-	int lastIndex = 0;
-	int j = 0;
+	unsigned int k = 3;	
 	for (int i = 0; i < 4; i++)
 	{
-		if (m_aBoard[3][i] == 0)
-			lastIndex = 3;
-		else
-			lastIndex = 2;
-
-		j = 2;
-		while (j >= 0)
+		k = 3;
+		for (int j = 2; j >= 0; j--)
 		{
-			if (m_aBoard[j][i] == 0)
-			{
-				j--;
-				continue;
-			}
-			else
-			{
-				if (m_aBoard[j][i] == m_aBoard[lastIndex + 1][i])
+			if (m_aBoard[j][i] != 0)
+			{			
+				while (k > j)
 				{
-					m_aBoard[lastIndex + 1][i] += m_aBoard[j][i];
-					m_aBoard[j][i] = 0;
-					lastIndex = j;
+					if (m_aBoard[k][i] == m_aBoard[j][i])
+					{
+						m_aBoard[k][i] += m_aBoard[j][i];
+						m_aBoard[j][i] = 0;
+						k--;
+						break;
+					}
+					else if (m_aBoard[k][i] == 0)
+					{
+						m_aBoard[k][i] = m_aBoard[j][i];
+						m_aBoard[j][i] = 0;
+						break;
+					}
+					k--;
 				}
-				else if (m_aBoard[lastIndex][i] == 0)
-				{
-					m_aBoard[lastIndex][i] = m_aBoard[j][i];
-					m_aBoard[j][i] = 0;
-					lastIndex = j;
-				}
-				else
-				{
-					j--;
-					lastIndex = j;
-					continue;
-				}
-				j--;
 			}
 		}
 	}
@@ -322,16 +270,16 @@ void GameBoard::placeRandomValue()
 
 bool GameBoard::placeValue(unsigned int x, unsigned int y, unsigned int value)
 {
-	if (x > 3 || y > 3 || value==0)
+	if (x > 3 || y > 3)
 		return false;
 	
 	m_aBoard[y][x] = value;
 	return true;
 }
 
-unsigned int* GameBoard::getGameBoard()
+unsigned int (*GameBoard::getGameBoard())[4]
 {
-	return (unsigned int*)m_aBoard;
+	return m_aBoard;
 }
 
 bool GameBoard::isBoardShifted()

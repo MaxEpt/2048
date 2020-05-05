@@ -60,7 +60,7 @@ public:
 	 * @param none	 
 	 * @return unsigned int* 
 	*/
-	unsigned int* getGameBoard();
+	unsigned int (*getGameBoard())[4];
 
 	/**
 	 * Checks was gameboard shifted to any side
