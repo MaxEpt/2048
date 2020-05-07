@@ -1,6 +1,7 @@
 # 2048 console game
 ## Todo
 - [ ] Correct generating random tile (no recursion?)
+- [ ] Correct output of gameboard
 - [ ] Don't generate random tile at every button press (only if game-board was shifted)
 - [ ] Refactor shift methods
 - [ ] Display Win and Lose messages
